@@ -120,7 +120,7 @@ void setup() {
 
     // Servo motors Initialize
     servoFlow.attach(FLOW_SERVO_PIN);
-    updateServoPosition(servoFlow, 0, 0, 100);
+    updateServoPosition(servoFlow, 0, 100, 0);
     servoTemp.attach(TEMP_SERVO_PIN);
     updateServoPosition(servoTemp, 0, 100, 0);
 
@@ -245,12 +245,13 @@ void loop() {
         {
           if (0 <= FS and FS < 101) // Update servo angle command
           {
-            updateServoPosition(servoFlow, int(FS), 0, 100);
+            updateServoPosition(servoFlow, int(FS), 100, 0);
           }
+          
         }
         else if ((FS != 0) and (SystemOn == false)) // When system is off always have flow set to zero
         {
-            updateServoPosition(servoFlow, int(0), 0, 100);
+            updateServoPosition(servoFlow, int(0), 100, 0);
         }
         if ((TS != pre_TS)) // and (SystemOn == true)
         {

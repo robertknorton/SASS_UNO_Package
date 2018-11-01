@@ -263,7 +263,10 @@ void loop() {
         {
           if (0 <= TS and TS < 101) // Update servo angle command
           {
-            updateServoPosition(servoTemp, int(TS), 100, 0); //updateServoPosition(servoTemp, int(TS), 0, 100);
+              // DANGER! DO NOT CHANGE!!! Damage will be inflicted on hardware if not careful
+              // This is a tuned input for the flow servo mounted to the thermostatic valve
+              // It limits its range of motion as to not strip either the adapter or motor gears
+            updateServoPosition(servoTemp, map(int(TS), 0, 100, 0, 85), 100, 0); //updateServoPosition(servoTemp, int(TS), 0, 100);
           }
         }
         newData = false;

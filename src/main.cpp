@@ -1,7 +1,7 @@
 /*
 Author: Robert Norton
 Project: Senior Design Project: Smart Automated Shower System (SASS)
-Date Last Updated: 10/5/2018
+Date Last Updated: 11/27/2018
 */
 
 #include <Arduino.h>
@@ -204,9 +204,6 @@ void loop() {
           {
             digitalWrite(SYSTRANS_RELAY_PIN, HIGH);
             SystemOn = true; // this ACTIVATES sensor readings and publishing back to RPi
-            Water_Temp_Avg = 0; // Reset avg water temp
-            Water_Temp_Total = 0;
-            counter = 0;
           }
           else if (STV == 0) // Valve Closed
           {
@@ -233,6 +230,9 @@ void loop() {
           {
             // FlowSensor.reset(); // this resets the meter values
             FlowSensor.setTotalVolume(0.0); // reset total volume
+            Water_Temp_Avg = 0;
+            Water_Temp_Total = 0;
+            counter = 0;
             // FlowSensor.setTotalCorrection(0.0); // reset total correction
             // FlowSensor.setTotalDuration(0.0); // reset total duration
           }

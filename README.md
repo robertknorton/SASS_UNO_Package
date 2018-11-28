@@ -8,12 +8,12 @@ Both microcontrollers communicate via Serial and send structured messages that (
 This code is specificly for running on a Arduino Uno.
 The Uno handles reading command messages from the Raspi 3B, does the commands, reads sensors, and then sends a message back containing sensor data.
 
-Arduino Libraries Used
-  Arduino.h
-  Adafruit_VL53L0X.h
-  OneWire.h
-  FlowMeter.h
-  DallasTemperature.h
-  Servo.h
+    Arduino Libraries Used
+        Arduino.h
+        Adafruit_VL53L0X.h
+        OneWire.h
+        FlowMeter.h
+        DallasTemperature.h
+        Servo.h
 
 Helpful links Arduino Serial Input Basics - https://forum.arduino.cc/index.php?topic=396450.0

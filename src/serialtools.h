@@ -1,3 +1,9 @@
+/*
+Author: Robert Norton
+Project: Senior Design Project: Smart Automated Shower System (SASS)
+Date Last Updated: 11/27/2018
+*/
+
 #include <Arduino.h>
 
 const byte numChars = 32;

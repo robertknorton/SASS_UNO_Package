@@ -1,9 +1,9 @@
 /*
 Author: Robert Norton
 Project: Senior Design Project: Smart Automated Shower System (SASS)
-Date Last Updated: 7/7/2018
-
+Date Last Updated: 11/27/2018
 */
+
 
 void sweep(Servo myservo)
 {

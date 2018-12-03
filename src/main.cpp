@@ -122,7 +122,8 @@ void setup() {
     servoFlow.attach(FLOW_SERVO_PIN);
     updateServoPosition(servoFlow, 0, 100, 0);
     servoTemp.attach(TEMP_SERVO_PIN);
-    updateServoPosition(servoTemp, 0, 100, 0);
+    // updateServoPosition(servoTemp, 0, 100, 0);
+    servoTemp.writeMicroseconds(2500);
 
     // Pin Mode Assignments
     pinMode(FLOW_SERVO_PIN, OUTPUT);
@@ -248,7 +249,7 @@ void loop() {
             // DANGER! DO NOT CHANGE!!! Damage will be inflicted on hardware if not careful
             // This is a tuned input for the flow servo mounted to the thermostatic valve
             // It limits its range of motion as to not strip either the adapter or motor gears
-            updateServoPosition(servoFlow, map(int(FS), 0, 100, 0, 36), 100, 0);
+            updateServoPosition(servoFlow, map(FS, 0, 100, 0, 36), 100, 0);
           }
 
         }
@@ -257,16 +258,17 @@ void loop() {
             // DANGER! DO NOT CHANGE!!! Damage will be inflicted on hardware if not careful
             // This is a tuned input for the flow servo mounted to the thermostatic valve
             // It limits its range of motion as to not strip either the adapter or motor gears
-            updateServoPosition(servoFlow, map(int(0), 0, 100, 0, 36), 100, 0);
+            updateServoPosition(servoFlow, map(0, 0, 100, 0, 36), 100, 0);
         }
         if ((TS != pre_TS)) // and (SystemOn == true)
         {
-          if (0 <= TS and TS < 101) // Update servo angle command
+          if (500 <= TS and TS < 2501) // Update servo angle command
           {
               // DANGER! DO NOT CHANGE!!! Damage will be inflicted on hardware if not careful
               // This is a tuned input for the flow servo mounted to the thermostatic valve
               // It limits its range of motion as to not strip either the adapter or motor gears
-            updateServoPosition(servoTemp, map(int(TS), 0, 100, 0, 85), 100, 0); //updateServoPosition(servoTemp, int(TS), 0, 100);
+            servoTemp.writeMicroseconds(TS);
+            //updateServoPosition(servoTemp, map(TS, 0, 100, 0, 85), 80, 0); //updateServoPosition(servoTemp, int(TS), 0, 100);
           }
         }
         newData = false;

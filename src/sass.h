@@ -39,9 +39,9 @@ int updateTempControl(int pot)
     return temp_val;
 }
 
-void updateServoPosition(Servo myservo, int newVal, int minInput, int maxInput)
+void updateServoPosition(Servo myservo, long newVal, long minInput, long maxInput)
 {
-    int setVal = map(newVal, minInput, maxInput, 500, 2500);
+    long setVal = map(newVal, minInput, maxInput, 500, 2500);
     // Serial.print("Flow Servo Set: "); Serial.println(setVal);
     myservo.writeMicroseconds(setVal);
 }

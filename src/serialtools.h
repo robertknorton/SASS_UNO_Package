@@ -19,15 +19,15 @@ char tempChars[numChars];        // temporary array for use when parsing
 int STV = 0; // system transfer valve, 0 is closed, 1 is open
 int BPV = 0; // bypass valve, 0 is closed, 1 is open
 int RST = 0; // reset indicator; mostly for reseting flow sensor
-int FS = 0; // flow servo, accepts a int between 0 and 100
-int TS = 0; // temp servo, accepts a int between 0 and 100
+long FS = 0; // flow servo, accepts a int between 0 and 100
+long TS = 0; // temp servo, accepts a int between 0 and 100
 
 // Previous varables used for check if their value has changed
 int pre_STV = 0; // system transfer valve, 0 is closed, 1 is open
 int pre_BPV = 0; // bypass valve, 0 is closed, 1 is open
 int pre_RST = 0; // reset indicator; mostly for reseting flow sensor
-int pre_FS = 0; // flow servo, accepts a int between 0 and 100
-int pre_TS = 0; // temp servo, accepts a int between 0 and 100
+long pre_FS = 0; // flow servo, accepts a int between 0 and 100
+long pre_TS = 0; // temp servo, accepts a int between 0 and 100
 
 boolean newData = false;
 
@@ -89,10 +89,10 @@ void parseData() {      // split the data into its parts
     RST = atoi(strtokIndx);     // convert this part to an integer
 
     strtokIndx = strtok(NULL, ",");
-    FS = atof(strtokIndx);     // convert this part to a float
+    FS = atol(strtokIndx);     // convert this part to a float
 
     strtokIndx = strtok(NULL, ",");
-    TS = atof(strtokIndx);     // convert this part to a float
+    TS = atol(strtokIndx);     // convert this part to a float
 
     // Serial.println(pre_STV);
     // Serial.println(pre_BPV);
